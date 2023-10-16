@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jfraser\\source\\repos\\webapptest\\WebApplication\\WebApplication1\\WebApplication1.csproj",
+      "projectUniqueName": "C:\\Users\\jfraser\\source\\repos\\webapptest\\WebApplication1\\WebApplication1.csproj",
       "projectName": "WebApplication1",
-      "projectPath": "C:\\Users\\jfraser\\source\\repos\\webapptest\\WebApplication\\WebApplication1\\WebApplication1.csproj",
+      "projectPath": "C:\\Users\\jfraser\\source\\repos\\webapptest\\WebApplication1\\WebApplication1.csproj",
       "packagesPath": "C:\\Users\\jfraser\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jfraser\\source\\repos\\webapptest\\WebApplication\\WebApplication1\\obj\\",
+      "outputPath": "C:\\Users\\jfraser\\source\\repos\\webapptest\\WebApplication1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\jfraser\\AppData\\Roaming\\NuGet\\NuGet.Config",
