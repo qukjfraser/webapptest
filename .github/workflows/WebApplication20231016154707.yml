@@ -5,10 +5,10 @@ on:
     - main
 env:
   AZURE_WEBAPP_NAME: WebApplication20231016154707
-  AZURE_WEBAPP_PACKAGE_PATH: .\published
+  AZURE_WEBAPP_PACKAGE_PATH: WebApplication1\published
   CONFIGURATION: Release
   DOTNET_CORE_VERSION: 7.0.x
-  WORKING_DIRECTORY: .
+  WORKING_DIRECTORY: WebApplication1
 jobs:
   build:
     runs-on: windows-latest
@@ -44,5 +44,5 @@ jobs:
       uses: azure/webapps-deploy@v2
       with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
-        publish-profile: ${{ secrets.WebApplication20231016154707_7857 }}
+        publish-profile: ${{ secrets.WebApplication20231016154707_C6DD }}
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
