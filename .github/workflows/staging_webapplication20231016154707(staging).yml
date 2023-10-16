@@ -9,6 +9,12 @@ on:
       - staging
   workflow_dispatch:
 
+env:
+      AZURE_WEBAPP_NAME: WebApplication20231016154707
+      WORKING_DIRECTORY: WebApplication1
+      CONFIGURATION: Release
+      AZURE_WEBAPP_PACKAGE_PATH: WebApplication1\published
+
 jobs:
   build:
     runs-on: windows-latest
@@ -20,19 +26,18 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '7.0.x'
-          include-prerelease: true
 
       - name: Build with dotnet
         run: dotnet build --configuration Release
 
-      - name: dotnet publish
-        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
-
-      - name: Upload artifact for deployment job
+      - name: Publish
+        run: dotnet publish "${{ env.WORKING_DIRECTORY }}" --configuration ${{ env.CONFIGURATION }} --no-build --output "${{ env.AZURE_WEBAPP_PACKAGE_PATH }}"
+      
+      - name: Publish Artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: .net-app
-          path: ${{env.DOTNET_ROOT}}/myapp
+            name: webapp
+            path: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
 
   deploy:
     runs-on: windows-latest
@@ -45,7 +50,8 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v3
         with:
-          name: .net-app
+            name: webapp
+            path: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
